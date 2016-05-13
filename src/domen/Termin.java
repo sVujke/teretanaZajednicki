@@ -12,6 +12,7 @@ package domen;
 public class Termin {
     private String smena;
     private boolean radniDan;
+    private Paket paket;
 
     public String getSmena() {
         return smena;
@@ -27,5 +28,13 @@ public class Termin {
 
     public void setRadniDan(boolean radniDan) {
         this.radniDan = radniDan;
+    }
+
+    public Paket getPaket() {
+        return paket;
+    }
+
+    public void setPaket(Paket paket) {
+        this.paket = paket;
     }
 }
