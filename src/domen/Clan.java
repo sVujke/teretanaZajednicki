@@ -16,6 +16,7 @@ public class Clan {
     private String email;
     private String adresa;
     private String telefon;
+    private Mesto mesto;
 
     public String getClanId() {
         return clanId;
@@ -63,5 +64,13 @@ public class Clan {
 
     public void setTelefon(String telefon) {
         this.telefon = telefon;
+    }
+
+    public Mesto getMesto() {
+        return mesto;
+    }
+
+    public void setMesto(Mesto mesto) {
+        this.mesto = mesto;
     }
 }

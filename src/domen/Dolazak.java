@@ -16,6 +16,7 @@ public class Dolazak {
     private Date datum;
     private String smena;
     private boolean radniDan;
+    private Clan clan;
 
     public String getDolazakid() {
         return dolazakid;
@@ -47,5 +48,13 @@ public class Dolazak {
 
     public void setRadniDan(boolean radniDan) {
         this.radniDan = radniDan;
+    }
+
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
     }
 }
