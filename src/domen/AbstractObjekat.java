@@ -6,6 +6,7 @@
 package domen;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public abstract class AbstractObjekat implements Serializable {
     public abstract String vratiParametre();
     public abstract String vratiPK();
     public abstract int vratiVrednostiPK();
-    public abstract List<AbstractObjekat> izRsUTabelu();
+    public abstract List<AbstractObjekat> izRsUTabelu(ResultSet rs);
     public abstract String vratiUpdateUpit();
     public abstract String vratiSlozeniPK();
     private int status;
@@ -29,6 +30,8 @@ public abstract class AbstractObjekat implements Serializable {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    
     
     
 }
