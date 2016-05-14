@@ -22,4 +22,5 @@ public class Konstante {
     public static final int ZAPAMTI_PRETPLATU = 10;
     public static final int PRETRAZI_PRETPLATE = 11;
     public static final int ZAPAMTI_DOLAZAK = 12;
+    public static final int VRATI_LISTU_MESTA = 13;
 }
