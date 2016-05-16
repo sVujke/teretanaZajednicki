@@ -17,7 +17,7 @@ public abstract class AbstractObjekat implements Serializable {
     public abstract String vratiImeTabele();
     public abstract String vratiParametre();
     public abstract String vratiPK();
-    public abstract int vratiVrednostiPK();
+    public abstract String vratiVrednostiPK();
     public abstract List<AbstractObjekat> izRsUTabelu(ResultSet rs);
     public abstract String vratiUpdateUpit();
     public abstract String vratiSlozeniPK();

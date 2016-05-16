@@ -5,13 +5,19 @@
  */
 package domen;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author vujke
  */
-public class Korisnik {
+public class Korisnik extends AbstractObjekat{
     private String ime;
     private String email;
     private String password;
@@ -84,5 +90,59 @@ public class Korisnik {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    @Override
+    public String vratiImeTabele() {
+        return "korisnik";//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiParametre() {
+        return ime+", " + email + "," + username + ", " + password;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiPK() {
+        return null;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiVrednostiPK() {
+        return ime+", " + email + "," + username + ", " + password;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<AbstractObjekat> izRsUTabelu(ResultSet rs) {
+        List<AbstractObjekat> korisnici = new ArrayList<>();
+        try {
+        while(rs.next()){
+            
+                String ime = rs.getString("ime");
+                String email = rs.getString("email");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                
+                Korisnik k = new Korisnik(ime, email, password, username);
+                korisnici.add(k);
+        }
+        
+        } catch (SQLException ex) {
+                Logger.getLogger(Korisnik.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return korisnici;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiUpdateUpit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiSlozeniPK() {
+        return " WHERE username=" + username + " AND email=" + email; //To change body of generated methods, choose Tools | Templates.
+    }
     
+    
+     
 }

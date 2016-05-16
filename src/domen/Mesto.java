@@ -73,7 +73,7 @@ public class Mesto extends AbstractObjekat {
     }
 
     @Override
-    public int vratiVrednostiPK() {
+    public String vratiVrednostiPK() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
