@@ -22,10 +22,6 @@ public class Clan {
         return clanId;
     }
 
-    public void setClanId(String clanId) {
-        this.clanId = clanId;
-    }
-
     public String getIme() {
         return ime;
     }

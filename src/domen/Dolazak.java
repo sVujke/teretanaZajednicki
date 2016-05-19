@@ -12,19 +12,17 @@ import java.util.Date;
  * @author vujke
  */
 public class Dolazak {
-    private String dolazakid;
+    private String dolazakId;
     private Date datum;
     private String smena;
     private boolean radniDan;
     private Clan clan;
 
-    public String getDolazakid() {
-        return dolazakid;
+    public String getDolazakId() {
+        return dolazakId;
     }
 
-    public void setDolazakid(String dolazakid) {
-        this.dolazakid = dolazakid;
-    }
+   
 
     public Date getDatum() {
         return datum;
