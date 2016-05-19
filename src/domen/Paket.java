@@ -14,6 +14,7 @@ public class Paket {
     private String paketId;
     private String naziv;
     private String cena;
+    
 
     public String getPaketId() {
         return paketId;
