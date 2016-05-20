@@ -5,11 +5,16 @@
  */
 package domen;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author vujke
  */
-public class Clan {
+public class Clan extends AbstractObjekat {
     private String clanId;
     private String ime;
     private String prezime;
@@ -17,6 +22,18 @@ public class Clan {
     private String adresa;
     private String telefon;
     private Mesto mesto;
+
+    public Clan(String clanId, String ime, String prezime, String email, String adresa, String telefon, Mesto mesto) {
+        this.clanId = clanId;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.email = email;
+        this.adresa = adresa;
+        this.telefon = telefon;
+        this.mesto = mesto;
+    }
+    
+    
 
     public String getClanId() {
         return clanId;
@@ -68,5 +85,60 @@ public class Clan {
 
     public void setMesto(Mesto mesto) {
         this.mesto = mesto;
+    }
+
+    @Override
+    public String vratiImeTabele() {
+        return "clan"; //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiParametre() {
+        return String.format("'%s', '%s', '%s', '%s', '%s', '%s', '%s'", clanId, ime, prezime, email, adresa, telefon, this.getMesto());
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiPK() {
+        return "clanId";
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiVrednostiPK() {
+        return clanId;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<AbstractObjekat> izRsUTabelu(ResultSet rs) {
+        List<AbstractObjekat> clanovi = new ArrayList<>();
+        try {
+            while (rs.next()) {
+
+                String id = rs.getString("clanId");
+                String ime = rs.getString("ime");
+                String prezime = rs.getString("prezime");
+                String email = rs.getString("email");
+                String adresa = rs.getString("adresa");
+                String telefon = rs.getString("telefon");
+                String mestoId = rs.getString("mestoId");
+                Clan c = new Clan(clanId, ime, prezime, email, adresa, telefon, new Mesto(null, null, mestoId));
+                clanovi.add(c);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Greska RSuTabelu kod clana");
+        }
+        return clanovi;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiUpdateUpit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiSlozeniPK() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
