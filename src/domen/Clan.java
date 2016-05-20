@@ -142,4 +142,8 @@ public class Clan extends AbstractObjekat {
     public String vratiSlozeniPK() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public String toString() {
+        return ime +" "+prezime;
+    }
 }
