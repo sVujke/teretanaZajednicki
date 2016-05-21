@@ -12,7 +12,7 @@ package konstante;
 public class Konstante {
     public static final int KREIRAJ_NOVOG_CLANA = 1;
     public static final int ZAPAMTI_CLANA = 2;
-    public static final int PRETRAZITI_CLANOVE = 3;
+    public static final int PRETRAZI_CLANOVE = 3;
     public static final int UCITAJ_CLANA = 4;
     public static final int OBRISI_CLANA = 5;
     public static final int KREIRAJ_NOVI_PAKET = 6;
@@ -24,4 +24,5 @@ public class Konstante {
     public static final int ZAPAMTI_DOLAZAK = 12;
     public static final int VRATI_LISTU_MESTA = 13;
     public static final int PRIJAVI_KORISNIKA = 14;
+    public static final int  VRATI_LISTU_PAKETA = 15;
 }
