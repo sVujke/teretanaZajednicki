@@ -26,6 +26,11 @@ public class Paket extends AbstractObjekat{
         this.cena = cena;
     }
 
+    public Paket() {
+    }
+    
+    
+
     @Override
     public String toString() {
         return naziv+" - "+cena+" RSD";

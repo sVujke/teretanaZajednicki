@@ -24,5 +24,5 @@ public class Konstante {
     public static final int ZAPAMTI_DOLAZAK = 12;  // done 
     public static final int VRATI_LISTU_MESTA = 13; // done 
     public static final int PRIJAVI_KORISNIKA = 14; // done
-    public static final int VRATI_LISTU_PAKETA = 15;
+    public static final int VRATI_LISTU_PAKETA = 15; // done
 }
