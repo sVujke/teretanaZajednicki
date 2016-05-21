@@ -5,13 +5,17 @@
  */
 package domen;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author vujke
  */
-public class Dolazak {
+public class Dolazak extends AbstractObjekat{
     private String dolazakId;
     private Date datum;
     private String smena;
@@ -20,6 +24,14 @@ public class Dolazak {
 
     public String getDolazakId() {
         return dolazakId;
+    }
+
+    public Dolazak(String dolazakId, Date datum, String smena, boolean radniDan, Clan clan) {
+        this.dolazakId = dolazakId;
+        this.datum = datum;
+        this.smena = smena;
+        this.radniDan = radniDan;
+        this.clan = clan;
     }
 
    
@@ -54,5 +66,61 @@ public class Dolazak {
 
     public void setClan(Clan clan) {
         this.clan = clan;
+    }
+
+    @Override
+    public String vratiImeTabele() {
+        return "dolazak";
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiParametre() {
+        return String.format("'%s', '%s', '%s', '%s', '%s'", dolazakId, datum, smena, radniDan, clan.getClanId());
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiPK() {
+        return dolazakId;
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiVrednostiPK() {
+        return dolazakId;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<AbstractObjekat> izRsUTabelu(ResultSet rs) {
+        List<AbstractObjekat> dolasci = new ArrayList<>();
+        try {
+            while (rs.next()) {
+
+                String dolazakId = rs.getString("dolazakId");
+                Date datum = rs.getDate("datum");
+                String smena = rs.getString("smena");
+                Boolean radniDan = rs.getBoolean("radniDan");
+                String clanId = rs.getString("clanId");
+               
+                Dolazak d = new Dolazak(clanId, datum, smena, radniDan,  new Clan(clanId, null, null, null, null, null, null));
+                dolasci.add(d);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Greska RSuTabelu kod clana");
+        }
+        return dolasci;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiUpdateUpit() {
+         return String.format("dolazakId='%s',datum='%s',smena='%s',radniDan='%s',clanId='%s'", dolazakId, datum, smena, radniDan, clan.getClanId());
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiSlozeniPK() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
