@@ -32,6 +32,10 @@ public class Clan extends AbstractObjekat {
         this.telefon = telefon;
         this.mesto = mesto;
     }
+
+    public Clan() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 
