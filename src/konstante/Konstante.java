@@ -20,8 +20,8 @@ public class Konstante {
     public static final int PRETRAZI_PAKETE = 8;
     public static final int UCITAJ_PAKET = 9;
     public static final int ZAPAMTI_PRETPLATU = 10;
-    public static final int PRETRAZI_PRETPLATE = 11;
-    public static final int ZAPAMTI_DOLAZAK = 12; 
+    public static final int PRETRAZI_PRETPLATE = 11; 
+    public static final int ZAPAMTI_DOLAZAK = 12;  // done 
     public static final int VRATI_LISTU_MESTA = 13; // done 
     public static final int PRIJAVI_KORISNIKA = 14; // done
     public static final int VRATI_LISTU_PAKETA = 15;
