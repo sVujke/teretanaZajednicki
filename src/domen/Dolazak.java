@@ -7,6 +7,7 @@ package domen;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +35,12 @@ public class Dolazak extends AbstractObjekat{
         this.clan = clan;
     }
 
-   
+    @Override
+    public String toString() {
+        return datum +"=" + datum + ", smena=" + smena + ", radniDan=" + radniDan + '}';
+    }
+
+    
 
     public Date getDatum() {
         return datum;
@@ -76,7 +82,14 @@ public class Dolazak extends AbstractObjekat{
 
     @Override
     public String vratiParametre() {
-        return String.format("'%s', '%s', '%s', '%s', '%s'", dolazakId, datum, smena, radniDan, clan.getClanId());
+        Date datumSQL = new java.sql.Date(getDatum().getTime());
+        int rd = 0;
+        if(radniDan == true){
+            rd = 1;
+        }else{
+            rd = 0;
+        }
+        return String.format("'%s', '%s', '%s', '%s', '%s'", dolazakId, datumSQL, smena, rd, clan.getClanId());
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -115,7 +128,14 @@ public class Dolazak extends AbstractObjekat{
 
     @Override
     public String vratiUpdateUpit() {
-         return String.format("dolazakId='%s',datum='%s',smena='%s',radniDan='%s',clanId='%s'", dolazakId, datum, smena, radniDan, clan.getClanId());
+        Date datumSQL = new java.sql.Date(getDatum().getTime());
+        int rd = 0;
+        if(radniDan == true){
+            rd = 1;
+        }else{
+            rd = 0;
+        }
+         return String.format("dolazakId='%s',datum='%s',smena='%s',radniDan='%s',clanId='%s'", dolazakId, datumSQL, smena, rd, clan.getClanId());
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
