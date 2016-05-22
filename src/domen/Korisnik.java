@@ -52,7 +52,7 @@ public class Korisnik extends AbstractObjekat{
             return false;
         }
         final Korisnik other = (Korisnik) obj;
-        if (!Objects.equals(this.email, other.email)) {
+        if (!Objects.equals(this.password, other.password)) {
             return false;
         }
         if (!Objects.equals(this.username, other.username)) {
@@ -61,9 +61,6 @@ public class Korisnik extends AbstractObjekat{
         return true;
     }
 
-    
-    
-    
     
 
     public String getIme() {
@@ -105,7 +102,7 @@ public class Korisnik extends AbstractObjekat{
 
     @Override
     public String vratiParametre() {
-        return ime+", " + email + "," + username + ", " + password;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return String.format("'%s', '%s', '%s', '%s'", email, password, ime, username);//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -142,7 +139,7 @@ public class Korisnik extends AbstractObjekat{
 
     @Override
     public String vratiUpdateUpit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return String.format("email='%s',password='%s',ime='%s',username='%s'",email,password, ime, username); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
