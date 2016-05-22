@@ -144,7 +144,7 @@ public class Korisnik extends AbstractObjekat{
 
     @Override
     public String vratiSlozeniPK() {
-        return " WHERE username=" + username + " AND email=" + email; //To change body of generated methods, choose Tools | Templates.
+        return String.format(" WHERE username='%s' AND email='%s'",username, email); //To change body of generated methods, choose Tools | Templates.
     }
     
     
