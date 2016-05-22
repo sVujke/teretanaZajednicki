@@ -52,7 +52,7 @@ public class Korisnik extends AbstractObjekat{
             return false;
         }
         final Korisnik other = (Korisnik) obj;
-        if (!Objects.equals(this.password, other.password)) {
+        if (!Objects.equals(this.email, other.email)) {
             return false;
         }
         if (!Objects.equals(this.username, other.username)) {
@@ -60,6 +60,9 @@ public class Korisnik extends AbstractObjekat{
         }
         return true;
     }
+
+    
+    
     
     
 

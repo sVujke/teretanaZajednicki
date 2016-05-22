@@ -16,7 +16,7 @@ public class Konstante {
     public static final int UCITAJ_CLANA = 4; // VIDECEMO DA LI CE MI TREBATI 
     public static final int OBRISI_CLANA = 5; // done
     public static final int KREIRAJ_NOVI_PAKET = 6; // ovo mi ne treba
-    public static final int ZAPAMTI_PAKET = 7; 
+    public static final int ZAPAMTI_PAKET = 7; // done
     public static final int PRETRAZI_PAKETE = 8;
     public static final int UCITAJ_PAKET = 9;
     public static final int ZAPAMTI_PRETPLATU = 10;
@@ -25,4 +25,5 @@ public class Konstante {
     public static final int VRATI_LISTU_MESTA = 13; // done 
     public static final int PRIJAVI_KORISNIKA = 14; // done
     public static final int VRATI_LISTU_PAKETA = 15; // done
+    public static final int VRATI_LISTU_KORISNIKA = 16; //done
 }
