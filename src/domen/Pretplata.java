@@ -90,9 +90,9 @@ public class Pretplata extends AbstractObjekat{
         try {
             while (rs.next()) {
 
-                String pretplataId = rs.getString("dolazakId");
+                String pretplataId = rs.getString("pretplataId");
                 Date datum = rs.getDate("datum");
-                String clanId = rs.getString("smena");
+                String clanId = rs.getString("clanId");
                 String paketId = rs.getString("paketId");
     
                 Pretplata p = new Pretplata(pretplataId,
@@ -102,7 +102,7 @@ public class Pretplata extends AbstractObjekat{
                 pretplate.add(p);
             }
         } catch (SQLException ex) {
-            System.out.println("Greska RSuTabelu kod clana");
+            System.out.println("Greska RSuTabelu kod pretplate");
         }
         return pretplate;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
