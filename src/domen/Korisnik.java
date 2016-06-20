@@ -22,7 +22,17 @@ public class Korisnik extends AbstractObjekat{
     private String email;
     private String password;
     private String username;
+    private String statusKorisnika = "offline";
 
+    public String getStatusKorisnika() {
+        return statusKorisnika;
+    }
+
+    public void setStatusKorisnika(String statusKorisnika) {
+        this.statusKorisnika = statusKorisnika;
+    }
+
+  
     public Korisnik(String ime, String email, String password, String username) {
         this.ime = ime;
         this.email = email;
