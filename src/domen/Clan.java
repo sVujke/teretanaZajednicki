@@ -119,7 +119,7 @@ public class Clan extends AbstractObjekat {
         try {
             while (rs.next()) {
 
-                String id = rs.getString("clanId");
+                String clanId = rs.getString("clanId");
                 String ime = rs.getString("ime");
                 String prezime = rs.getString("prezime");
                 String email = rs.getString("email");
