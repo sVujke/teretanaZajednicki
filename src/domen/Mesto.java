@@ -100,12 +100,12 @@ public class Mesto extends AbstractObjekat {
 
     @Override
     public String vratiPK() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "mestoId";
     }
 
     @Override
     public String vratiVrednostiPK() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return mestoid;
     }
 
     @Override

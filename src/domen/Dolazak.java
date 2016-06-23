@@ -23,6 +23,10 @@ public class Dolazak extends AbstractObjekat{
     private boolean radniDan;
     private Clan clan;
 
+    public Dolazak() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getDolazakId() {
         return dolazakId;
     }
