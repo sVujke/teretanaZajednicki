@@ -5,17 +5,23 @@
  */
 package domen;
 
+import java.sql.ResultSet;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author vujke
  */
-public class IstorijatPaketa {
+public class IstorijatPaketa extends AbstractObjekat{
     private boolean aktivan;
     private Date datumOdabira;
     private Clan clan;
     private Paket paket;
+
+    public IstorijatPaketa() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public boolean isAktivan() {
         return aktivan;
@@ -47,5 +53,42 @@ public class IstorijatPaketa {
 
     public void setPaket(Paket paket) {
         this.paket = paket;
+    }
+
+    @Override
+    public String vratiImeTabele() {
+        return "istorijatpaketa";
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiParametre() {
+        //return String.format("'%s', '%s', '%s', '%s'", aktivan, datumOdabira, );
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiPK() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiVrednostiPK() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<AbstractObjekat> izRsUTabelu(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiUpdateUpit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String vratiSlozeniPK() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

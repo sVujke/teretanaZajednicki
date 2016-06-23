@@ -148,6 +148,6 @@ public class Clan extends AbstractObjekat {
     }
     
     public String toString() {
-        return ime +" "+prezime;
+        return ime +" "+prezime+"-"+email;
     }
 }
