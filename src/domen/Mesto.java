@@ -133,7 +133,8 @@ public class Mesto extends AbstractObjekat {
 
     @Override
     public String vratiUpdateUpit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return String.format("mestoId='%s',naziv='%s',ptt='%s'",mestoid,naziv, ptt);
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
