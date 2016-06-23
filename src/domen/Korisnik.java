@@ -156,6 +156,12 @@ public class Korisnik extends AbstractObjekat{
     public String vratiSlozeniPK() {
         return String.format(" WHERE username='%s' AND email='%s'",username, email); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void postaviVrednostPK(String lastId) {
+        //this. = lastId;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
      

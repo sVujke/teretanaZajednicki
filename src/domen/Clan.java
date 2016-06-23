@@ -150,4 +150,10 @@ public class Clan extends AbstractObjekat {
     public String toString() {
         return ime +" "+prezime+"-"+email;
     }
+
+    @Override
+    public void postaviVrednostPK(String lastId) {
+        this.clanId = lastId;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -21,6 +21,8 @@ public abstract class AbstractObjekat implements Serializable {
     public abstract List<AbstractObjekat> izRsUTabelu(ResultSet rs);
     public abstract String vratiUpdateUpit();
     public abstract String vratiSlozeniPK();
+    public abstract void postaviVrednostPK(String lastId);
+    
     private int status;
 
     public int getStatus() {
@@ -30,6 +32,15 @@ public abstract class AbstractObjekat implements Serializable {
     public void setStatus(int status) {
         this.status = status;
     }
+
+//    public void postaviVrednostPK(String lastid) {
+//        
+//        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+    /*
+    public void postaviVrednostPK(String lastid) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
 
     
     

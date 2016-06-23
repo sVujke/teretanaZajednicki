@@ -6,6 +6,8 @@
 package domen;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,10 +20,21 @@ public class IstorijatPaketa extends AbstractObjekat{
     private Date datumOdabira;
     private Clan clan;
     private Paket paket;
+    private String id;
 
     public IstorijatPaketa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public IstorijatPaketa(boolean aktivan, Date datumOdabira, Clan clan, Paket paket, String id) {
+        this.aktivan = aktivan;
+        this.datumOdabira = datumOdabira;
+        this.clan = clan;
+        this.paket = paket;
+        this.id = id;
+    }
+    
+    
 
     public boolean isAktivan() {
         return aktivan;
@@ -63,8 +76,8 @@ public class IstorijatPaketa extends AbstractObjekat{
 
     @Override
     public String vratiParametre() {
-        //return String.format("'%s', '%s', '%s', '%s'", aktivan, datumOdabira, );
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return String.format("'%s', '%s', '%s', '%s', '%s'", aktivan, datumOdabira, clan.getClanId(), paket.getPaketId(), id);
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -74,21 +87,64 @@ public class IstorijatPaketa extends AbstractObjekat{
 
     @Override
     public String vratiVrednostiPK() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return id;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<AbstractObjekat> izRsUTabelu(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<AbstractObjekat> listaIP = new ArrayList<>();
+        try {
+            while (rs.next()) {
+
+                Boolean aktivan = rs.getBoolean("aktivan");
+                Date datum = rs.getDate("datumOdabira");
+                String clanId = rs.getString("clanId");
+                String paketId = rs.getString("paketId");
+                String id = rs.getString("id");
+               
+                IstorijatPaketa ip = new IstorijatPaketa(aktivan, datumOdabira,
+                        new Clan(clanId, null, null, null, null, null, null),
+                        new Paket(paketId, null, null), id);
+                listaIP.add(ip);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Greska RSuTabelu kod clana");
+        }
+        return listaIP;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String vratiUpdateUpit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Date datumSQL = new java.sql.Date(getDatumOdabira().getTime());
+        int rd = 0;
+        if(aktivan == true){
+            rd = 1;
+        }else{
+            rd = 0;
+        }
+         return String.format("aktivan='%s',datumOdabira='%s',clanId='%s'"
+                 + ",paketId='%s',id='%s'"
+                 , aktivan, datumSQL, clan.getClanId(), paket.getPaketId(), id);
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String vratiSlozeniPK() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public void postaviVrednostPK(String lastId) {
+        this.id = lastId;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
