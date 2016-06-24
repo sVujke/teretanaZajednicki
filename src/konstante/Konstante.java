@@ -33,4 +33,5 @@ public class Konstante {
     public static int VRATI_LISTU_DOLAZAKA = 21;
     public static int VRATI_LISTU_IP = 22;
     public static int ZAPAMTI_IP = 23;
+    public static int VRATI_LISTU_PRETPLATA=24;
 }

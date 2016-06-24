@@ -27,6 +27,10 @@ public class Pretplata extends AbstractObjekat{
         this.clan = clan;
         this.paket = paket;
     }
+
+    public Pretplata() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 
