@@ -76,7 +76,14 @@ public class IstorijatPaketa extends AbstractObjekat{
 
     @Override
     public String vratiParametre() {
-        return String.format("'%s', '%s', '%s', '%s', '%s'", aktivan, datumOdabira, clan.getClanId(), paket.getPaketId(), id);
+        int aktivanBr = 0;
+        Date datumSQL = new java.sql.Date(getDatumOdabira().getTime());
+        if(aktivan){
+            aktivanBr =1;
+        }else{
+            aktivanBr =0;
+        }
+        return String.format("'%s', '%s', '%s', '%s', '%s'", aktivanBr, datumSQL, clan.getClanId(), paket.getPaketId(), id);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -97,7 +104,7 @@ public class IstorijatPaketa extends AbstractObjekat{
             while (rs.next()) {
 
                 Boolean aktivan = rs.getBoolean("aktivan");
-                Date datum = rs.getDate("datumOdabira");
+                Date datumOdabira = rs.getDate("datumOdabira");
                 String clanId = rs.getString("clanId");
                 String paketId = rs.getString("paketId");
                 String id = rs.getString("id");
