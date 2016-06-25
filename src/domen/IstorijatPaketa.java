@@ -89,7 +89,7 @@ public class IstorijatPaketa extends AbstractObjekat{
 
     @Override
     public String vratiPK() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "id";//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -132,7 +132,7 @@ public class IstorijatPaketa extends AbstractObjekat{
         }
          return String.format("aktivan='%s',datumOdabira='%s',clanId='%s'"
                  + ",paketId='%s',id='%s'"
-                 , aktivan, datumSQL, clan.getClanId(), paket.getPaketId(), id);
+                 , rd, datumSQL, clan.getClanId(), paket.getPaketId(), id);
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
