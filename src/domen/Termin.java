@@ -87,12 +87,12 @@ public class Termin extends AbstractObjekat{
         List<AbstractObjekat> termini = new ArrayList<>();
         try {
             while (rs.next()) {
-                String teminId = rs.getString("terminId");
-                String naziv = rs.getString("smena");
-                String cena = rs.getString("radniDan");
+                String terminId = rs.getString("terminId");
+                String smena= rs.getString("smena");
+                Boolean radniDan = rs.getBoolean("radniDan");
                 String paketId = rs.getString("paketId");
                 
-                Termin t = new Termin(smena, radniDan, paket, id);
+                Termin t = new Termin(smena, radniDan, new Paket(paketId, null, null), terminId);
                 termini.add(t);
                 //System.out.println(s);
             }
