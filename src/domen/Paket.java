@@ -20,6 +20,7 @@ public class Paket extends AbstractObjekat{
     private String paketId;
     private String naziv;
     private String cena;
+    private List<Termin> termini;
 
     public Paket(String paketId, String naziv, String cena) {
         this.paketId = paketId;
@@ -147,6 +148,14 @@ public class Paket extends AbstractObjekat{
             return false;
         }
         return true;
+    }
+
+    public List<Termin> getTermini() {
+        return termini;
+    }
+
+    public void setTermini(List<Termin> termini) {
+        this.termini = termini;
     }
     
     
