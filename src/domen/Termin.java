@@ -6,6 +6,7 @@
 package domen;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +17,20 @@ public class Termin extends AbstractObjekat{
     private String smena;
     private boolean radniDan;
     private Paket paket;
+    private String id;
+
+    public Termin(String smena, boolean radniDan, Paket paket, String id) {
+        this.smena = smena;
+        this.radniDan = radniDan;
+        this.paket = paket;
+        this.id = id;
+    }
+
+    public Termin() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 
     public String getSmena() {
         return smena;
@@ -43,32 +58,59 @@ public class Termin extends AbstractObjekat{
 
     @Override
     public String vratiImeTabele() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "termin";//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String vratiParametre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        int rad = 0;
+        if(radniDan == true){
+            rad = 1;
+        }
+        return String.format("'%s', '%s', '%s', '%s'", id , smena, rad, paket.getPaketId());
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String vratiPK() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "terminId";//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String vratiVrednostiPK() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return id;//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<AbstractObjekat> izRsUTabelu(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<AbstractObjekat> termini = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                String teminId = rs.getString("terminId");
+                String naziv = rs.getString("smena");
+                String cena = rs.getString("radniDan");
+                String paketId = rs.getString("paketId");
+                
+                Termin t = new Termin(smena, radniDan, paket, id);
+                termini.add(t);
+                //System.out.println(s);
+            }
+        } catch (Exception e) {
+            System.out.println("Greska kod stavki rezervacije.");
+        }
+        return termini;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String vratiUpdateUpit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int br = 0;
+        if(radniDan == true){
+            br = 1;
+        }
+        return String.format("terminId='%s',smena='%s',radniDan='%s',paketId='%s'",id,smena, br, paket.getPaketId());
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -78,6 +120,15 @@ public class Termin extends AbstractObjekat{
 
     @Override
     public void postaviVrednostPK(String lastId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        id = lastId;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
