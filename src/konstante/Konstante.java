@@ -30,9 +30,11 @@ public class Konstante {
     public static final int OBRISI_KORISNIKA = 18; // done
     public static final int VRATI_LISTU_CLANOVA = 19; // done
     public static final int VRATI_CLANA_PK = 20; // done
-    public static int VRATI_LISTU_DOLAZAKA = 21; // done
-    public static int VRATI_LISTU_IP = 22; // done
-    public static int ZAPAMTI_IP = 23; // done
-    public static int VRATI_LISTU_PRETPLATA=24; // done
-    public static int VRATI_LISTU_TERMINA = 25; // done
+    public static final int VRATI_LISTU_DOLAZAKA = 21; // done
+    public static final int VRATI_LISTU_IP = 22; // done
+    public static final int ZAPAMTI_IP = 23; // done
+    public static final int VRATI_LISTU_PRETPLATA=24; // done
+    public static final int VRATI_LISTU_TERMINA = 25; // done
+    public static final int IZMENI_PAKET = 26;
+    public static final int IZMENI_CLANA = 27;
 }

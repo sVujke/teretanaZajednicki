@@ -80,8 +80,6 @@ public class IstorijatPaketa extends AbstractObjekat{
         Date datumSQL = new java.sql.Date(getDatumOdabira().getTime());
         if(aktivan){
             aktivanBr =1;
-        }else{
-            aktivanBr =0;
         }
         return String.format("'%s', '%s', '%s', '%s', '%s'", aktivanBr, datumSQL, clan.getClanId(), paket.getPaketId(), id);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -138,7 +136,9 @@ public class IstorijatPaketa extends AbstractObjekat{
 
     @Override
     public String vratiSlozeniPK() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return " WHERE id=" + id + " AND paketId=" + getPaket().getPaketId() +
+                " AND clanId="+getClan().getClanId();
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getId() {
