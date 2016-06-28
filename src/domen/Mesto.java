@@ -17,6 +17,8 @@ import java.util.logging.Logger;
  *
  * @author vujke
  */
+
+    // pred refactor
 public class Mesto extends AbstractObjekat {
     private String naziv;
     private String ptt;
